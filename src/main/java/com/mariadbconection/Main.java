@@ -1,15 +1,15 @@
 package com.mariadbconection;
 
 import com.ap.dao.EstudianteDAO;
+import com.ap.controller.Estudiante;
 
 import java.util.Date;
 import java.util.List;
-import com.ap.controller.Estudiante;
 
 public class Main {
 
-	public static void main(String[] args) {
-		EstudianteDAO estudianteDAO = new EstudianteDAO();
+    public static void main(String[] args) {
+        EstudianteDAO estudianteDAO = new EstudianteDAO();
 
         // Crear un nuevo estudiante
         Estudiante nuevoEstudiante = new Estudiante();
@@ -23,10 +23,11 @@ public class Main {
         nuevoEstudiante.setGrado("5to");
         nuevoEstudiante.setFechaInscripcion(new Date());
         estudianteDAO.insertarEstudiante(nuevoEstudiante);
-		
+
+        // Obtener estudiante por ID
         Estudiante estudiante = estudianteDAO.obtenerEstudiante(1);
-        if(estudiante != null) {
-        	System.out.println("Estudiante ID: " + estudiante.getId());
+        if (estudiante != null) {
+            System.out.println("Estudiante ID: " + estudiante.getId());
             System.out.println("Nombre: " + estudiante.getNombre());
             System.out.println("Apellido: " + estudiante.getApellido());
         } else {
